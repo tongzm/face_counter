@@ -13,7 +13,7 @@
 然后，你需要克隆这个仓库：
 
 ```bash
-git clone https://github.com/yourusername/face_counter.git
+git clone https://github.com/tongzm/face_counter.git
 ```
 
 最后，你需要安装项目的依赖：
