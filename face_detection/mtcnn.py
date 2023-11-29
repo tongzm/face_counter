@@ -133,6 +133,14 @@ class MTCNN():
         return bounding_boxes, landmarks
     
 def count_faces(image_path):
+    """
+    Arguments
+    image_path: The path to the image file
+
+    Return:
+    The number of faces detected in the image
+    """
+
     # create detector
     detector = MTCNN()
 

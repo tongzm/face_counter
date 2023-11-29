@@ -12,7 +12,7 @@ First, install the Anaconda python 3.10 environment: slightly
 Then, you need to clone this repository:
 
 ```bash
-git clone https://github.com/tongzm/face_counter.git
+git clone https://github.com/tongzm/face_counter_private.git
 ```
 
 Finally, you need to install the project's dependencies:
