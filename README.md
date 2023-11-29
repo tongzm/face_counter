@@ -44,7 +44,7 @@ python script.py /path/to/your/7_image.jpg --eval
 You need to replace `/path/to/your/7_image.jpg` with the actual path to your image file
 
 ## Evaluation metrics
-We use `precision`, `recall`, and `f1` as evaluation metrics
+We use `mean absolute percentage error(MAPE)` as evaluation metrics
 
 ## Unit test
 

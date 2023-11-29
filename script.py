@@ -1,6 +1,6 @@
 import os
 import argparse
-from sklearn.metrics import precision_score, recall_score, f1_score
+from sklearn.metrics import mean_absolute_percentage_error
 from face_detection.mtcnn import count_faces
 
 def main():
@@ -26,13 +26,10 @@ def main():
                     true_num_faces = int(filename.split('_')[0])
                     y_true.append(true_num_faces)
         if args.eval:
-            precision = precision_score(y_true, y_pred, average='micro')
-            recall = recall_score(y_true, y_pred, average='micro')
-            f1 = f1_score(y_true, y_pred, average='micro')
+            mape = mean_absolute_percentage_error(y_true, y_pred)
             print('--------------------')
-            print(f'Precision: {precision}')
-            print(f'Recall: {recall}')
-            print(f'F1 Score: {f1}')
+            print(f'MAPE: {mape}')
+
     else:
         # If the input is an image file
         num_faces = count_faces(args.input_path)
@@ -43,13 +40,9 @@ def main():
             # read the real number of faces from the file name
             true_num_faces = int(os.path.basename(args.input_path).split('_')[0])
             y_true = [true_num_faces]
-            precision = precision_score(y_true, y_pred, average='micro')
-            recall = recall_score(y_true, y_pred, average='micro')
-            f1 = f1_score(y_true, y_pred, average='micro')
+            mape = mean_absolute_percentage_error(y_true, y_pred)
             print('----------------')
-            print(f'Precision: {precision}')
-            print(f'Recall: {recall}')
-            print(f'F1 Score: {f1}')
+            print(f'MAPE: {mape}')
 
 
 if __name__ == '__main__':
