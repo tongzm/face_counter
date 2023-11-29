@@ -2,7 +2,7 @@ import sys
 import os
 import unittest
 from PIL import Image
-from face_detection.mtcnn_detector import count_faces
+from mtcnn.mtcnn import count_faces
 
 class TestFaceDetection(unittest.TestCase):
     def test_detect_faces(self):

@@ -2,58 +2,53 @@
 
 # Face Counter
 
-这是一个使用MTCNN进行人脸检测的项目。在macos,windows的adaconda python 3.10环境下测试通过。
+This is a project using Pytorch InsightFace for face counting. The test passed in the Anaconda python 3.10 environment of macos and windows.
 
-## 安装
+## Install
 
-首先, 安装adaconda python 3.10环境: 略
+First, install the Anaconda python 3.10 environment: slightly
 
 
-
-然后，你需要克隆这个仓库：
+Then, you need to clone this repository:
 
 ```bash
 git clone https://github.com/tongzm/face_counter.git
 ```
 
-最后，你需要安装项目的依赖：
+Finally, you need to install the project's dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-你可以通过以下命令来使用这个程序：
 
-## 使用
-你可以通过以下命令来使用这个程序：
+## How to use
+You can use this program with the following command:
 ```bash
 python script.py /path/to/your/image.jpg
 ```
 
-你需要将`/path/to/your/image.jpg`替换为你的图片文件的实际路径。你也可以将一个文件夹的路径作为参数，这个程序会处理文件夹中的所有.jpg和.png图片：
+You need to replace `/path/to/your/image.jpg` with the actual path to your image file. You can also pass the path to a folder as an argument, and the program will process all .jpg and .png images in the folder:
 
 ```bash
 python script.py /path/to/your/images/
 ```
 
-## 评估方法
+## Evaluation method
 
-如果你想输出评估指标，请在图片文件名的开头加入实际人脸数量和"_"作为分隔符如:"7_image.jpg", 然后添加 --eval参数
+If you want to output evaluation metrics, please add the actual number of faces and "_" as the delimiter at the beginning of the image file name, such as: "7_image.jpg", and then add the --eval parameter.
 ```bash
 python script.py /path/to/your/7_image.jpg --eval
 ```
 
-你需要将`/path/to/your/7_image.jpg`替换为你的图片文件的实际路径
+You need to replace `/path/to/your/7_image.jpg` with the actual path to your image file
 
-## 评估指标
-我们设计的评估指标准确率（Accuracy）的定义为：探测到的人脸总数与实际人脸总数的比值。
-```bash
-Accuracy=探测到的人脸总数/实际人脸总数
-```
+## Evaluation metrics
+We use `precision`, `recall`, and `f1` as evaluation metrics
 
-## 单元测试
+## Unit test
 
-你可以通过以下命令来运行单元测试：
+You can run unit tests with the following command:
 ```bash
 python -m unittest test.py
 ```
