@@ -1,7 +1,9 @@
 import os
 import argparse
-from sklearn.metrics import mean_absolute_percentage_error
-from face_detection.mtcnn import count_faces
+from face_detection import count_faces
+from sklearn.metrics import mean_absolute_percentage_error,mean_absolute_error,mean_squared_error,r2_score 
+import math
+
 
 def main():
     # parse command line parameters
@@ -27,8 +29,15 @@ def main():
                     y_true.append(true_num_faces)
         if args.eval:
             mape = mean_absolute_percentage_error(y_true, y_pred)
+            mae = mean_absolute_error(y_true, y_pred)
+            rmse = math.sqrt(mean_squared_error(y_true, y_pred))
+            r2 = r2_score(y_true, y_pred)
             print('--------------------')
             print(f'MAPE: {mape}')
+            print(f'MAE: {mae}')
+            print(f'RMSE: {rmse}')
+            print(f'R^2: {r2}')
+
 
     else:
         # If the input is an image file
@@ -41,8 +50,14 @@ def main():
             true_num_faces = int(os.path.basename(args.input_path).split('_')[0])
             y_true = [true_num_faces]
             mape = mean_absolute_percentage_error(y_true, y_pred)
-            print('----------------')
+            mae = mean_absolute_error(y_true, y_pred)
+            rmse = math.sqrt(mean_squared_error(y_true, y_pred))
+            r2 = r2_score(y_true, y_pred)
+            print('--------------------')
             print(f'MAPE: {mape}')
+            print(f'MAE: {mae}')
+            print(f'RMSE: {rmse}')
+            print(f'R^2: {r2}')
 
 
 if __name__ == '__main__':
